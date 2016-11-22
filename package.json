@@ -1,0 +1,24 @@
+{
+  "name": "progetto_2",
+  "version": "1.0.0",
+  "description": "progetto 2",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/DamianoBonani/SE2_16_172310_L4.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/DamianoBonani/SE2_16_172310_L4/issues"
+  },
+  "homepage": "https://github.com/DamianoBonani/SE2_16_172310_L4#readme",
+  "dependencies": {
+    "bind": "^0.1.7",
+    "body-parser": "^1.15.2",
+    "express": "^4.14.0"
+  }
+}
