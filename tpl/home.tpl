@@ -29,6 +29,42 @@
             <input type="button" value="Reset" onclick="resetta()">
         </form>
     </div>
+    
+    <hr>
+	<button onclick="controlloUploader()" id="mostraPulsanti">Insert Employee </button>
+	 
+    <div id="campiInserimento" class="">
+        <form id="insert" action="/insert" method="post">
+            <div>
+                <label for="iID">ID</label>
+                <br>
+                <input type="number" id="iID" name="iID" placeholder="Insert an ID" value="(:id:)">
+            </div>
+            <div>
+                <label for="iName">Name</label>
+                <br>
+                <input type="text" id="iName" name="iName" placeholder="Insert a name" value="(:name:)">
+            </div>
+            <div>
+                <label for="iSurname">Surname</label>
+                <br>
+                <input type="text" id="iSurname" name="iSurname" placeholder="Insert a surname"  value="(:surname:)">
+            </div>
+            <div>
+                <label for="iLevel">Level</label>
+                <br>
+                <input type="number" id="iLevel" name="iLevel" placeholder="Insert a level"  value="(:level:)">
+            </div>
+            <div>
+                <label for="iSalary">Salary</label>
+                <br>
+                <input type="number" id="iSalary" name="iSalary" placeholder="Insert a salary" value="(:salary:)">
+            </div>
+            <br>
+            <input type="button" id="btnSubmit" onclick="controlloInvia()" value="Submit">
+            <input type="button" id="btnReset" value="Reset" onclick="resetta()">
+        </form>
+	</div>
 
 
 </body>
