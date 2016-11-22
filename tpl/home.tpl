@@ -4,6 +4,8 @@
 	<meta charset="utf-8">
 	<title> Progetto 2 </title>
 
+    <script type="text/javascript" src="/js/script.js"></script> 
+    <link href="/css/style.css" rel="stylesheet" type="text/css">
 </head>
 <body onLoad="init( (:if[visibile] ~
         [:then ~ true:]
