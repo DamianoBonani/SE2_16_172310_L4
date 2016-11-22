@@ -73,3 +73,15 @@ function controlloElimina(){
 	else
 		alert("Form incomplete");	
 }
+
+/**
+* Controlla se fare il submit del form oppure da un messaggio di errore
+*/
+function controlloCerca(){
+	cerca_ok = controlloValidita("iIDSearch");
+	var ok = cerca_ok;
+	if(ok)
+		document.getElementById("search").submit();
+	else
+		alert("Form incomplete");	
+}
