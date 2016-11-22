@@ -93,6 +93,58 @@ app.post('/delete', function(req, res) {
     });
 });
 
+/******************************************************************************************************
+POST SEARCH
+******************************************************************************************************/
+app.post('/search', function(req, res) {
+	var msg = '';
+	var cerca = "";
+	var errore = false;
+	
+	if ( typeof req.body !== 'undefined' && req.body){
+        //the ontent of the POST receiced
+		msg = "req.body: " + util.inspect(req.body);
+        //content of the post
+		// salvo il contenuto del campo iID
+		if ( typeof req.body.iIDSearch !== 'undefined' && req.body.iIDSearch)
+			cerca = parseInt(req.body.iIDSearch);
+		else {
+			errore = true;
+		} 	
+	} else {
+		msg = "body undefined";
+	}
+	
+	if (errore){
+		console.log("errore");
+	}
+	else{
+		var posizione = miomodulo.cercaDipendente(cerca);
+		var dipendente = miomodulo.getDipendente(posizione);
+		console.log("\n\nCERCA id: "+cerca+" in pos: "+posizione);
+		console.log(msg);
+		miomodulo.stampa();
+	}
+	
+	//bind to template
+	bind.toFile('tpl/home.tpl', {
+        //set up parameters
+		visibile : true,
+		id_search: dipendente.id,
+		id_delete: '',
+        id: dipendente.id,
+        name: dipendente.name,
+		surname: dipendente.surname,
+		level: dipendente.level,
+		salary: dipendente.salary
+    }, 
+    function(data){
+        //write response
+        res.writeHead(200, {'Content-Type': 'text/html'});
+        res.end(data);
+    });
+});
+
 
 
 
