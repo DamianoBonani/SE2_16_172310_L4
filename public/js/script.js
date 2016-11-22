@@ -85,3 +85,18 @@ function controlloCerca(){
 	else
 		alert("Form incomplete");	
 }
+
+/**
+* Controlla se fare il submit del form oppure da un messaggio di errore
+*/
+function controlloInvia(){
+	controlloName("iName");
+	controlloSurname("iSurname");
+	controlloLevel("iLevel");
+	controlloSalary("iSalary");
+	var ok = name_ok && surname_ok && level_ok && salary_ok;
+	if(ok)
+		document.getElementById("insert").submit();
+	else
+		alert("Form incomplete");	
+}
