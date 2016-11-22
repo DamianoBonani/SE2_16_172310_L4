@@ -19,6 +19,16 @@
             <input type="button" value="Reset" onclick="resetta()">
         </form>
     </div>
+    
+    <br>
+    <div id="campoElimina">
+    	<form id="delete" action="/delete" method="post">
+        	<label for="iIDDelete">Delete by ID</label>
+            	<input type="number" id="iIDDelete" name="iIDDelete" placeholder="Insert an ID" value="(:id_delete:)">
+        	<input type="button" id="btnDelete" value="Delete" onclick="controlloElimina()">
+            <input type="button" value="Reset" onclick="resetta()">
+        </form>
+    </div>
 
 
 </body>
