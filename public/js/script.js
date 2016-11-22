@@ -60,3 +60,16 @@ function resetta(){
 	level_ok = false;
 	salary_ok = false;
 }
+
+/**
+* Controlla se fare il submit del form oppure da un messaggio di errore
+*/
+function controlloElimina(){
+	elimina_ok = controlloValidita("iIDDelete");
+	var ok =elimina_ok;
+	
+	if(ok)
+		document.getElementById("delete").submit();
+	else
+		alert("Form incomplete");	
+}
