@@ -44,6 +44,56 @@ app.get('/', function(req, res) {
 });
 
 
+app.use(bodyParser.urlencoded({ extended: false }));
+/******************************************************************************************************
+POST DELETE
+******************************************************************************************************/
+app.post('/delete', function(req, res) {
+	var msg = '';
+	var elimina = "";
+	var errore = false;
+	
+	if ( typeof req.body !== 'undefined' && req.body){
+        //the ontent of the POST receiced
+		msg = "req.body: " + util.inspect(req.body);
+		// salvo il contenuto del campo iID
+		if ( typeof req.body.iIDDelete !== 'undefined' && req.body.iIDDelete)
+			elimina = parseInt(req.body.iIDDelete);
+		else {
+			elimina = true;
+		} 	
+	} else {
+		msg = "body undefined";
+	}
+	if (errore){
+		console.log("errore");
+	} else {
+		var posizione = miomodulo.cercaDipendente(elimina);
+		miomodulo.delDipendente(posizione);
+		console.log("\n\nELIMANA id: "+elimina+" in pos: "+posizione);
+		console.log(msg);
+		miomodulo.stampa();
+	}
+	//bind to template
+	bind.toFile('tpl/home.tpl', {
+        //set up parameters
+		visibile : false,
+		id_search: '',
+		id_delete: '',
+        id: '',
+        name: '',
+		surname: '',
+		level: '',
+		salary: ''
+    }, 
+    function(data){
+        //write response
+        res.writeHead(200, {'Content-Type': 'text/html'});
+        res.end(data);
+    });
+});
+
+
 
 
 //listen in a specific port
