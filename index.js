@@ -146,6 +146,94 @@ app.post('/search', function(req, res) {
 });
 
 
+/******************************************************************************************************
+POST INSERT
+******************************************************************************************************/
+app.post('/insert', function(req, res) {
+	var msg = '';
+	var errore = false;
+	var dipendente = miomodulo.init();
+
+	if ( typeof req.body !== 'undefined' && req.body)
+	{
+        //the ontent of the POST receiced
+		msg = "req.body: " + util.inspect(req.body);
+        //content of the post
+		// salvo il contenuto del campo iID
+		if ( typeof req.body.iID !== 'undefined'){
+			if(req.body.iID=="")
+				dipendente.id = miomodulo.setId();
+			else
+				dipendente.id = parseInt(req.body.iID);
+		} else {
+			dipendente.id = "not defined";
+			errore = true;
+		}
+		// salvo il contenuto del campo iName		
+		if ( typeof req.body.iName !== 'undefined' && req.body.iName)
+			dipendente.name = req.body.iName;
+		else{ 
+			dipendente.name = "not defined";
+			errore = true;
+		}
+		// salvo il contenuto del campo iSurname		
+		if ( typeof req.body.iSurname !== 'undefined' && req.body.iSurname)
+			dipendente.surname = req.body.iSurname;
+		else{ 
+			dipendente.surname = "not defined";
+			errore = true;
+		}
+		// salvo il contenuto del campo iLevel			
+		if ( typeof req.body.iLevel !== 'undefined' && req.body.iLevel)
+			dipendente.level = parseInt(req.body.iLevel);
+		else{ 
+			dipendente.level = "not defined";		
+			errore = true;
+		}
+		// salvo il contenuto del campo iSalary				
+		if ( typeof req.body.iSalary !== 'undefined' && req.body.iSalary)
+			dipendente.salary = parseInt(req.body.iSalary);
+		else{ 
+			dipendente.salary = "not defined";	
+			errore = true;
+		}   	
+	} else {
+		msg = "body undefined";
+	}
+	
+	if (errore){
+		console.log("errore");
+	} else {
+		var posizione = miomodulo.cercaDipendente(dipendente.id);
+		if(posizione==-1){
+			console.log("\n\nINSERISCI elem");
+			miomodulo.aggiungiDipendente(dipendente);
+		} else{
+			console.log("\n\nMODIFICA elem");
+			miomodulo.modificaDipendente(dipendente,posizione);	
+		}
+		console.log(msg);
+		miomodulo.stampa();
+	}
+	
+	//bind to template
+	bind.toFile('tpl/home.tpl', {
+        //set up parameters
+		visibile : false,
+		id_search: '',
+		id_delete: '',
+        id: '',
+        name: '',
+		surname: '',
+		level: '',
+		salary: ''
+    }, 
+    function(data) {
+        //write response
+        res.writeHead(200, {'Content-Type': 'text/html'});
+        res.end(data);
+    });
+});
 
 
 //listen in a specific port
