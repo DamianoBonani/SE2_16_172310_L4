@@ -28,3 +28,15 @@ function init(param){
 	controlloLevel("iLevel");
 	controlloSalary("iSalary");		
 }
+
+/**
+* Funzione per la gestione della comparsa e scomparsa dei campi di input
+*/
+function controlloUploader(){
+	resetta();
+	if(visibile)
+		document.getElementById("campiInserimento").className = "invisibile"; //rendo invisibile
+	else
+		document.getElementById("campiInserimento").className = "visibile"; // rendo visibile
+	visibile=!visibile;
+}
