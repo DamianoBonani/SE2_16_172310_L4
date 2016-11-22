@@ -115,3 +115,35 @@ function controlloValidita(id){
 		return false;
 			
 }
+
+/**
+* Controlla se il campo di input è valido
+* @param {String} id che indica il rispettivo campo di input
+*/
+function controlloName(id){
+	name_ok = controlloValidita(id);	
+}
+
+/**
+* Controlla se il campo di input è valido
+* @param {String} id che indica il rispettivo campo di input
+*/
+function controlloSurname(id){
+	surname_ok = controlloValidita(id);	
+}
+
+/**
+* Controlla se il campo di input è valido
+* @param {String} id che indica il rispettivo campo di input
+*/
+function controlloLevel(id){
+	level_ok = controlloValidita(id);	
+}
+
+/**
+* Controlla se il campo di input è valido
+* @param {String} id che indica il rispettivo campo di input
+*/
+function controlloSalary(id){
+	salary_ok = controlloValidita(id);	
+}
