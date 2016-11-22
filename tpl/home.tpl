@@ -5,7 +5,10 @@
 	<title> Progetto 2 </title>
 
 </head>
-<body >
+<body onLoad="init( (:if[visibile] ~
+        [:then ~ true:]
+        [:else ~ false:]
+    :) )">
  
     <center>
 	<h2><b>Progetto 2</b></h2>
