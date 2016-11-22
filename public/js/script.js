@@ -40,3 +40,23 @@ function controlloUploader(){
 		document.getElementById("campiInserimento").className = "visibile"; // rendo visibile
 	visibile=!visibile;
 }
+
+/**
+* Resetta le variabili necessari per la validazione dei campi di input
+*/
+function resetta(){
+
+	document.getElementById("iIDSearch").value="";
+	document.getElementById("iIDDelete").value="";	
+	document.getElementById("iID").value="";
+	document.getElementById("iName").value="";
+	document.getElementById("iSurname").value="";
+	document.getElementById("iLevel").value="";
+	document.getElementById("iSalary").value="";
+	cerca_ok = false;
+	elimina_ok = false;
+	name_ok = false;
+	surname_ok = false;
+	level_ok = false;
+	salary_ok = false;
+}
